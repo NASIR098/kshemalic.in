@@ -6,6 +6,9 @@
     "@astrojs/cloudflare": "^14.1.3"
   },
   "scripts": {
+    "dev": "npm run --prefix shining-series dev",
+    "build": "npm run --prefix shining-series build",
+    "deploy": "wrangler pages deploy",
     "generate-types": "wrangler types"
   }
 }

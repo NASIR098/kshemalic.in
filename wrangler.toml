@@ -1,0 +1,3 @@
+name = "kshemalic"
+pages_build_output_dir = "./shining-series/dist"
+compatibility_date = "2026-07-13"
