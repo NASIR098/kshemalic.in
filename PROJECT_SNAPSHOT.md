@@ -180,7 +180,6 @@ The blog schema inside [content.config.ts](file:///d:/Nasir/KshemaLIC.in/shining
 
 ## 7. Known Gaps / Not Yet Done
 
-- **Agent Code and Registration Placeholders:** The variables `PUBLIC_AGENT_CODE` and `PUBLIC_IRDAI_REG` are currently configured in environment logic/Astro translation configs with fallback strings `[Agent Code Placeholder]` and `[IRDAI Code Placeholder]`. Real credentials need to be injected before launch.
 - **OG-Image Status:** The reference `/og-image.jpg` exists in metadata templates inside `Layout.astro` as a placeholder fallback, but the actual file has not yet been designed or placed in the `/public/` asset folder.
 - **Pexels API Integration:** The `imageKeyword` configuration fields exist on every article for build-time automated image attachment. The direct automated runner pipeline hook requires real environment credentials and active integration verification.
 - **Custom Domain Attachment Status:** The custom domain `kshemalic.in` is registered and referenced in canonical links, XML sitemaps, and layout structures, but actual DNS delegation and Cloudflare Pages binding remain pending deployment completion.
@@ -190,6 +189,6 @@ The blog schema inside [content.config.ts](file:///d:/Nasir/KshemaLIC.in/shining
 ## 8. Deployment Details
 
 - **Cloudflare Pages Project Name:** `kshemalic`
-- **Build Command:** `npm run build` (which maps to `npm run --prefix shining-series build` inside the root workspace configurations)
+- **Build Command:** `npm run build` (runs validation guard `node scripts/validate-env.mjs && astro build` inside the root workspace configurations to block builds containing placeholder values for `PUBLIC_AGENT_CODE`, `PUBLIC_AGENT_PHONE`, or `PUBLIC_IRDAI_REG`)
 - **Build Output Directory:** `./shining-series/dist`
 - **Deploy Trigger Type:** Manual deploy via Wrangler CLI (`npm run deploy` maps to `wrangler pages deploy` command targeting build folder), though it is prepared to transition to a Git-connected auto-deploy flow.
